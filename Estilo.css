@@ -1,0 +1,346 @@
+/* --- Variables de Diseño y Paleta de Colores --- */
+:root {
+    --bg-dark: #0f172a;       /* Fondo principal oscuro */
+    --bg-card: #1e293b;       /* Fondo de las tarjetas */
+    --accent-blue: #38bdf8;   /* Azul brillante tech */
+    --accent-purple: #818cf8; /* Morado suave */
+    --text-main: #f8fafc;     /* Texto claro */
+    --text-muted: #94a3b8;    /* Texto secundario */
+}
+
+/* --- Reseteo de márgenes y fuentes --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(15, 23, 42, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-blue);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)), 
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&auto=format&fit=crop&q=80') no-repeat center center/cover;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* --- Secciones Generales --- */
+.section-container {
+    padding: 100px 8% 80px 8%;
+    text-align: center;
+}
+
+.alt-bg {
+    background-color: #090d16;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+/* --- Tarjetas (Pilares y Tipos) --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px; /* Ampliado ligeramente para acomodar 4 columnas del nuevo contenido */
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-image-container {
+    height: 130px; /* Tamaño compacto formal */
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image-container img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.card-content strong {
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+}
+
+/* Quita la negrita a los elementos de la lista dentro de tus tarjetas */
+.card-content ul li {
+    font-weight: normal; 
+    color: var(--text-muted);   
+    margin-left: 15px;
+    font-size: 0.88rem;
+}
+
+/* --- Contenedor de Video Responsivo --- */
+.video-wrapper {
+    max-width: 800px;
+    margin: 0 auto 30px auto; /* Agregado margen inferior para separar múltiples videos si se requiere */
+    position: relative;
+    padding-bottom: 45%; 
+    height: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Sección Detallada (Amenazas, Conceptos y Áreas) --- */
+.detailed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.detailed-grid h3 {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+}
+
+.detailed-grid ul {
+    margin-bottom: 20px;
+}
+
+.detailed-grid ul li {
+    margin-bottom: 12px;
+}
+
+.detailed-grid ul li strong {
+    color: var(--accent-purple);
+}
+
+.amenaza-item {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    border-left: 4px solid var(--accent-purple);
+}
+
+.amenaza-item h4 {
+    color: var(--accent-blue);
+    margin-bottom: 5px;
+}
+
+.amenazas-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* --- Buenas Prácticas (Consejos y Herramientas) --- */
+.consejos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.consejo-box {
+    background-color: rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.consejo-box:hover {
+    background-color: rgba(30, 41, 59, 0.6);
+}
+
+.consejo-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.consejo-box h5 {
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+}
+
+.consejo-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- Pie de Página --- */
+.main-footer {
+    background-color: #05070f;
+    padding: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    .detailed-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .video-wrapper {
+        padding-bottom: 56.25%;
+    }
+}
